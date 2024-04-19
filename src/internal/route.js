@@ -1,7 +1,7 @@
 import express from 'express';
-import { getLeaderboardController } from './controller';
+import { getLeaderboardController } from './controller.js';
 
-export const route = express.Router();
+const route = express.Router();
 
 route.get('/healthz', (req, res) => {
   res.send('OK');
@@ -10,3 +10,5 @@ route.get('/healthz', (req, res) => {
 route.get('/leaderboard/:type', (req, res) => {
   return getLeaderboardController(req, res);
 })
+
+export default route;

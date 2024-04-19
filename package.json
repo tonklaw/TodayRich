@@ -2,11 +2,11 @@
   "name": "todayrich",
   "version": "1.0.0",
   "description": "Play Today, Rich Today",
-  "main": "index.js",
+  "main": "src/index.js",
   "scripts": {
     "test": "jest --passWithNoTests",
     "start": "node src/index.js",
-    "dev": "nodemon src/index.js"
+    "dev": "nodemon --legacy-watch src/index.js "
   },
   "dependencies": {
     "cors": "^2.8.5",
