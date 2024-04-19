@@ -1,5 +1,5 @@
 import express from 'express';
-import { getLeaderboardController } from './controllers/leaderboardController.js';
+import { getLeaderboard } from './controllers/leaderboardController.js';
 import { getMe, login, logout, register } from './controllers/authController.js';
 import { protectedRoute } from './middlewares/auth.js';
 
@@ -9,7 +9,7 @@ route.get('/health', (req, res) => {
   res.status(200).send('OK');
 })
 
-route.get('/leaderboard/:type', getLeaderboardController)
+route.get('/leaderboard/:type', getLeaderboard)
 
 route.post('/login', login)
 route.post('/register', register)

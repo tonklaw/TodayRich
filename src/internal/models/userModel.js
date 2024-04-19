@@ -19,6 +19,14 @@ const UserSchema = new mongoose.Schema({
     minlength: 8,
     select: false,
   },
+  bestScore: {
+    type: mongoose.Decimal128,
+    default: 0,
+  },
+  money: {
+    type: mongoose.Decimal128,
+    default: 100.00,
+  },
   createdAt: {
     type: Date,
     default: Date.now,
