@@ -1,4 +1,5 @@
-export const getLeaderboardController = (req, res) => {
+
+export const getLeaderboardController = async (req, res) => {
   if (req.params.type === 'overall') {
     return res.json({ type: 'top' });
   } else if (req.params.type === 'single') {
