@@ -4,18 +4,17 @@ import { verify } from "../../utils/tokenUtil.js";
 export const protectedRoute = async (req, res, next) => {
   let token;
 
-  token = parseCookies(req.headers.cookie).token;
+  if (req.headers.cookie) {
+    const cookies = parseCookies(req.headers.cookie);
+    token = cookies.token;
+  }
 
   if (!token || token === "null") {
     return res.status(401).json({ error: "Not authorized to access this route" });
   }
 
-  console.log(token);
-
   try {
     const decoded = verify(token, process.env.TOKEN_SECRET);
-
-    console.log(decoded);
 
     req.user = await User.findById(decoded.id);
 
