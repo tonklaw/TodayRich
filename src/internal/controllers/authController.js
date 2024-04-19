@@ -27,7 +27,8 @@ export const login = async (req, res) => {
 
     sendTokenResponse(user, 200, res);
   } catch (error) {
-    console.error(error);
+
+    console.log(error);
     res.status(500).json({ error: 'Server error' });
   }
 }
@@ -43,6 +44,10 @@ export const register = async (req, res) => {
 
     sendTokenResponse(user, 201, res);
   } catch (error) {
+    if (error.code == 11000) {
+      return res.status(400).json({ error: 'Username already exists' });
+    }
+
     console.error(error);
     res.status(500).json({ error: 'Server error' });
   }
