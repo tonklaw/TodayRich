@@ -1,12 +1,20 @@
 import express from 'express';
-import { getLeaderboardController } from './controller';
+import { getLeaderboard } from './controllers/leaderboardController.js';
+import { getMe, login, logout, register } from './controllers/authController.js';
+import { protectedRoute } from './middlewares/auth.js';
 
-export const route = express.Router();
+const route = express.Router();
 
-route.get('/healthz', (req, res) => {
-  res.send('OK');
+route.get('/health', (req, res) => {
+  res.status(200).send('OK');
 })
 
-route.get('/leaderboard/:type', (req, res) => {
-  return getLeaderboardController(req, res);
-})
+route.get('/leaderboard/:type', getLeaderboard)
+
+route.post('/login', login)
+route.post('/register', register)
+route.get('/me', protectedRoute, getMe)
+route.get('/logout', protectedRoute, logout)
+
+
+export default route;
