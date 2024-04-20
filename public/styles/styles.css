@@ -24,32 +24,39 @@ html {
   position: absolute;
   top: calc(50% - 50px);
   z-index: 99;
-  transition: transform 1s;
+  transition: transform cubic-bezier(0.25, 0.46, 0.45, 0.94) 0.3s;
 }
 
 .container {
   position: relative;
-  transition: transform 1s;
+  transition: transform cubic-bezier(0.25, 0.46, 0.45, 0.94) 0.3s;
   transform: translateX(calc(-120px * var(--move)));
   display: flex;
   height: 100vh;
 }
+
 .item:nth-child(odd) {
   min-width: 150px;
   background-color: #36344e;
   display: flex;
-  justify-content: center; /* Center the image horizontally */
-  align-items: center; /* Center the image vertically */
+  justify-content: center;
+  /* Center the image horizontally */
+  align-items: center;
+  /* Center the image vertically */
   position: relative;
 }
+
 .item:nth-child(even) {
   min-width: 150px;
   background-color: #262541;
   display: flex;
-  justify-content: center; /* Center the image horizontally */
-  align-items: center; /* Center the image vertically */
+  justify-content: center;
+  /* Center the image horizontally */
+  align-items: center;
+  /* Center the image vertically */
   position: relative;
 }
+
 .line {
   position: absolute;
   top: 0;
@@ -57,40 +64,39 @@ html {
   right: 0;
   min-width: 4px;
   background-color: white;
-  background-image: repeating-linear-gradient(
-    180deg,
-    #fff,
-    #fff 20px,
-    #262541 20px,
-    #262541 40px
-  );
+  background-image: repeating-linear-gradient(180deg,
+      #fff,
+      #fff 20px,
+      #262541 20px,
+      #262541 40px);
 }
+
 .grass1 {
   background-color: #2fb062;
   display: flex;
-  justify-content: center; /* Center the image horizontally */
-  align-items: center; /* Center the image vertically */
-  background-image: linear-gradient(
-    to right,
-    #2fb062,
-    #2fb062 100px,
-    #b5b1b7 20px,
-    #b5b1b7 100px
-  );
+  justify-content: center;
+  /* Center the image horizontally */
+  align-items: center;
+  /* Center the image vertically */
+  background-image: linear-gradient(to right,
+      #2fb062,
+      #2fb062 100px,
+      #b5b1b7 20px,
+      #b5b1b7 100px);
 }
 
 .grass2 {
   background-color: #2fb062;
   display: flex;
-  justify-content: center; /* Center the image horizontally */
-  align-items: center; /* Center the image vertically */
-  background-image: linear-gradient(
-    to right,
-    #b5b1b7,
-    #b5b1b7 100px,
-    #2fb062 20px,
-    #2fb062 100px
-  );
+  justify-content: center;
+  /* Center the image horizontally */
+  align-items: center;
+  /* Center the image vertically */
+  background-image: linear-gradient(to right,
+      #b5b1b7,
+      #b5b1b7 100px,
+      #2fb062 20px,
+      #2fb062 100px);
 }
 
 /* http://meyerweb.com/eric/tools/css/reset/ 
