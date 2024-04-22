@@ -152,7 +152,7 @@ export const loadGame = async (req, res) => {
       return res.status(403).json({ error: 'Unauthorized' });
     }
 
-    res.status(200).json({ success: true, game });
+    res.status(200).json({ success: true, gameID: game._id, step: game.step, level: game.level, bet: game.bet, multiplier: game.multiplier });
 
   } catch (error) {
     console.error(error);

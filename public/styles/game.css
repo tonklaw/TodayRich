@@ -1,0 +1,105 @@
+.game-container {
+  position: relative;
+  transition: transform cubic-bezier(0.25, 0.46, 0.45, 0.94) 0.3s;
+  transform: translateX(calc(-120px * 0));
+  display: flex;
+  height: 100%;
+  background-color: #0CA783;
+  min-width: fit-content;
+  overflow: hidden;
+  transition: all 0.4s ease 0s;
+}
+
+.game-container div.lanes {
+  display: flex;
+  height: 100%;
+  width: 100%;
+  position: relative;
+
+}
+
+.game-container div.lanes .item:nth-child(odd) {
+  min-width: 150px;
+  background-color: #36344e;
+  display: flex;
+  justify-content: center;
+  /* Center the image horizontally */
+  align-items: center;
+  /* Center the image vertically */
+  position: relative;
+}
+
+.game-container div.lanes .item:nth-child(even) {
+  min-width: 150px;
+  background-color: #262541;
+  display: flex;
+  justify-content: center;
+  /* Center the image horizontally */
+  align-items: center;
+  /* Center the image vertically */
+  position: relative;
+}
+
+.game-container div.lanes .line {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  min-width: 4px;
+  background-color: white;
+  background-image: repeating-linear-gradient(180deg,
+      #fff,
+      #fff 20px,
+      #262541 20px,
+      #262541 40px);
+}
+
+.game-container div.lanes .mul {
+  position: absolute;
+  color: white;
+  font-family: Arial, Helvetica, sans-serif;
+  font-weight: bold;
+}
+
+main section div.game-container .home {
+  width: 180px;
+  height: 100%;
+  display: flex;
+  -webkit-box-align: center;
+  align-items: center;
+  position: relative;
+  background-position: left center;
+  background-repeat: repeat-y;
+  flex-shrink: 0;
+  transform: rotateY(180deg);
+  pointer-events: none;
+  user-select: none;
+  background-image: url('../assets/images/sideway.png');
+}
+
+main section div.game-container .home img {
+  transform: rotateY(180deg);
+}
+
+.grass2 {
+  background-color: #0CA783;
+  display: flex;
+  justify-content: center;
+  /* Center the image horizontally */
+  align-items: center;
+  /* Center the image vertically */
+  background-image: linear-gradient(to right,
+      #b5b1b7,
+      #b5b1b7 100px,
+      #0CA783 20px,
+      #0CA783 100px);
+}
+
+.chicken {
+  height: 100px;
+  width: auto;
+  position: absolute;
+  top: calc(50% - 50px);
+  z-index: 99;
+  transition: transform cubic-bezier(0.25, 0.46, 0.45, 0.94) 0.3s;
+}
