@@ -11,7 +11,11 @@ connect();
 
 const app = express();
 
-app.use(express.static('public'));
+app.use(express.static('public', {
+  extensions: ['html', 'htm'],
+  index: 'index.html',
+}));
+
 app.use(express.json());
 app.use(cors());
 

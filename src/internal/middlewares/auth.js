@@ -35,11 +35,11 @@ export const adminRoute = async (req, res, next) => {
 
 function parseCookies(cookieString) {
   const cookies = {};
-    cookieString.split(';').forEach(cookie => {
-        const parts = cookie.split('=');
-        const key = parts[0].trim();
-        const value = parts[1].trim();
-        cookies[key] = value;
-    });
+  cookieString.split(';').forEach(cookie => {
+    const parts = cookie.split('=');
+    const key = parts[0].trim();
+    const value = parts[1].trim();
+    cookies[key] = value;
+  });
   return cookies;
 }

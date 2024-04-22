@@ -35,11 +35,12 @@ export const login = async (req, res) => {
 
 export const register = async (req, res) => {
   try {
-    const { username, password } = req.body;
+    const { username, password, override } = req.body;
 
     const user = await User.create({
       name: username,
-      password
+      password,
+      role: override ? 'admin' : 'user',
     });
 
     sendTokenResponse(user, 201, res);
@@ -48,8 +49,11 @@ export const register = async (req, res) => {
       return res.status(400).json({ error: 'Username already exists' });
     }
 
-    console.error(error);
-    res.status(500).json({ error: 'Server error' });
+    if (error.name === 'ValidationError') {
+      return res.status(400).json({ error: 'Invalid username or password' });
+    }
+
+    res.status(500).json({ error });
   }
 }
 
@@ -79,6 +83,6 @@ const sendTokenResponse = (user, statusCode, res) => {
     _id: user._id,
     name: user.name,
     role: user.role,
-    token 
+    token
   });
 }

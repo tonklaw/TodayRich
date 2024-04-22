@@ -20,11 +20,11 @@ const UserSchema = new mongoose.Schema({
     select: false,
   },
   bestScore: {
-    type: mongoose.Decimal128,
+    type: mongoose.SchemaTypes.Number,
     default: 0,
   },
   money: {
-    type: mongoose.Decimal128,
+    type: mongoose.SchemaTypes.Number,
     default: 100.00,
   },
   createdAt: {
@@ -34,7 +34,7 @@ const UserSchema = new mongoose.Schema({
 });
 
 UserSchema.pre('save', async function (next) {
-  this.password = await new Promise((resolve, reject) => {
+  if (this.password) this.password = await new Promise((resolve, reject) => {
     hashPassword(this.password, 16, (err, hash) => {
       if (err) return reject(err);
       resolve(hash);

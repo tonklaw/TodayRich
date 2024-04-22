@@ -1,20 +1,11 @@
 import { User } from "../models/userModel.js";
 
-// export const getLeaderboardController = async (req, res) => {
-//   if (req.params.type === 'overall') {
-//     return res.json({ type: 'top' });
-//   } else if (req.params.type === 'single') {
-//     return 'Single game leaderboard';
-//   }
-//   return res.status(400).json({ error: 'Invalid leaderboard type' });
-// }
-
 export const getLeaderboard = async (req, res) => {
 
   if (req.params.type != 'bestScore' && req.params.type != 'money') {
     return res.status(400).json({ error: 'Invalid leaderboard type' });
   }
-  
+
   const type = req.params.type === 'bestScore' ? 'bestScore' : 'money';
 
   try {
@@ -60,7 +51,7 @@ export const getLeaderboard = async (req, res) => {
     }
 
     if (user && index >= 0) {
-      return res.status(200).json({ success: true, name: user.name, rank: index + 1 , count: results.length, pagination, leaderboard: results });
+      return res.status(200).json({ success: true, name: user.name, rank: index + 1, count: results.length, pagination, leaderboard: results });
     }
 
     res.status(200).json({ success: true, count: results.length, pagination, leaderboard: results });
