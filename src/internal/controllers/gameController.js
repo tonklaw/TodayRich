@@ -37,7 +37,6 @@ export const startGame = async (req, res) => {
 
     const penalty = (await GameHistory.find({ user: req.user._id, win: true }).countDocuments()) || 0 / (await GameHistory.find({ user: req.user._id }).countDocuments()) || 1 * (1 / levelMultiplier[req.body.level]);
     const endStepCalc = Math.round((Math.random() * 16) * (penalty))
-    console.log(penalty, endStepCalc)
     const game = await GameHistory.create({
       user: req.user._id,
       score: 0,
@@ -47,7 +46,7 @@ export const startGame = async (req, res) => {
       won: false,
       ended: false,
       step: 0,
-      endStep: Math.max(0, 16 - endStepCalc),
+      endStep: Math.max(0, (Math.random() * 16)),
     });
 
     user.money -= req.body.bet;
@@ -79,7 +78,7 @@ export const playGame = async (req, res) => {
 
     game.step += 1;
 
-    if (game.step > 15) {
+    if (game.step > 15) { // Game Finished with won
       game.ended = true;
       game.won = true;
       game.score += game.bet * game.multiplier * game.step;
@@ -90,7 +89,7 @@ export const playGame = async (req, res) => {
       return res.status(200).json({ success: true, game });
     }
 
-    if (game.step === game.endStep) {
+    if (game.step >= game.endStep) { // Game Finished with lose
       game.ended = true;
       game.won = false;
       user.bestScore = Math.max(user.bestScore, game.score) || 0;
@@ -101,8 +100,8 @@ export const playGame = async (req, res) => {
 
     game.score += game.bet * game.multiplier * game.step;
 
-    await game.save();
-    res.status(200).json({ success: true, game });
+    await game.save(); // Game continues
+    res.status(200).json({ success: true, game: { step: game.step, score: game.score, ended: false } });
 
   } catch (error) {
     console.error(error);
