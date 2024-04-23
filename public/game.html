@@ -1,121 +1,116 @@
 <html>
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>TodayRich - Game</title>
-    <link rel="stylesheet" href="/styles/base.css" />
-    <link rel="stylesheet" href="/styles/style.css" />
-    <link rel="stylesheet" href="/styles/game.css" />
-    <link rel="shortcut icon" type="image/x-icon" href="/assets/favicon.ico" />
-  </head>
 
-  <script src="/scripts/game.js" defer></script>
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>TodayRich - Game</title>
+  <link rel="stylesheet" href="/styles/base.css" />
+  <link rel="stylesheet" href="/styles/style.css" />
+  <link rel="stylesheet" href="/styles/game.css" />
+  <link rel="shortcut icon" type="image/x-icon" href="/assets/favicon.ico" />
+</head>
 
-  <body>
-    <header>
-      <div class="title-container">
-        <h1 class="title">TodayRich</h1>
+<script src="/scripts/game.js" defer></script>
+
+<body>
+  <header>
+    <div class="title-container">
+      <h1 class="title">TodayRich</h1>
+    </div>
+    <div class="user-action">
+      <div class="container">
+        <btn class="btn btn-secondary"><a href="/login"> Login </a></btn>
+        <btn class="btn btn-primary"><a href="/register"> Register </a></btn>
       </div>
-      <div class="user-action">
-        <div class="container">
-          <btn class="btn btn-secondary"><a href="/login"> Login </a></btn>
-          <btn class="btn btn-primary"><a href="/register"> Register </a></btn>
+    </div>
+  </header>
+
+  <main>
+    <section id="game-container">
+      <div id="view" class="game-container">
+        <img id="chicken" class="chicken" src="/assets/images/chicken.svg" />
+        <div class="home">
+          <img src="/assets/images/ground.svg" />
+        </div>
+        <div class="lanes">
+          <div class="item">
+            <div class="line"></div>
+            <p class="mul">x1.00</p>
+            <img src="/assets/images/pipe.svg" />
+          </div>
+          <div class="item">
+            <div class="line"></div>
+            <p class="mul">x1.00</p>
+            <img src="/assets/images/pipe.svg" />
+          </div>
+          <div class="item">
+            <div class="line"></div>
+            <p class="mul">x1.00</p>
+            <img src="/assets/images/pipe.svg" />
+          </div>
+          <div class="item">
+            <div class="line"></div>
+            <p class="mul">x1.00</p>
+            <img src="/assets/images/pipe.svg" />
+          </div>
+          <div class="item">
+            <div class="line"></div>
+            <p class="mul">x1.00</p>
+            <img src="/assets/images/pipe.svg" />
+          </div>
+          <div class="item">
+            <div class="line"></div>
+            <p class="mul">x1.00</p>
+            <img src="/assets/images/pipe.svg" />
+          </div>
+          <div class="item">
+            <div class="line"></div>
+            <p class="mul">x1.00</p>
+            <img src="/assets/images/pipe.svg" />
+          </div>
+          <div class="item">
+            <div class="line"></div>
+            <p class="mul">x1.00</p>
+            <img src="/assets/images/pipe.svg" />
+          </div>
+          <div class="item">
+            <div class="line"></div>
+            <p class="mul">x1.00</p>
+            <img src="/assets/images/pipe.svg" />
+          </div>
+          <div class="item">
+            <div class="line"></div>
+            <p class="mul">x1.00</p>
+            <img src="/assets/images/pipe.svg" />
+          </div>
         </div>
       </div>
-    </header>
+    </section>
+    <section class="bet-control container">
+      <div id="amount-control" class="section-controller">
+        <label for="bet">Bet Amount</label>
+        <div id="bet" class="container">
+          <img src="/assets/images/cash.svg" id="bet-icon" />
+          <input name="bet" type="number" step="0.01" min="0.00" max="1000" value="0.00"
+            onkeydown="handleBetInput(event)" onblur="(() => {if (this.value === '') this.value = '0.00'})()"
+            placeholder="Enter your bet" />
+        </div>
+      </div>
+      <div class="section-controller">
+        <label for="bet-level">Diffuculty</label>
+        <div id="bet-level" class="btn-group">
+          <btn class="btn btn-secondary btn-level" selected="true" id="btn-bet">Easy</btn>
+          <btn class="btn btn-secondary btn-level" id="btn-bet">Medium</btn>
+          <btn class="btn btn-secondary btn-level" id="btn-bet">Hard</btn>
+          <btn class="btn btn-secondary btn-level" id="btn-bet">Evil</btn>
+        </div>
+      </div>
+      <div class="section-controller">
+        <label for="btn-bet">Let's roll</label>
+        <btn class="btn btn-primary btn-bet" id="btn-bet">Start bet</btn>
+      </div>
+    </section>
+  </main>
+</body>
 
-    <main>
-      <section id="game-container">
-        <div id="view" class="game-container">
-          <img id="chicken" class="chicken" src="/assets/images/chicken.svg" />
-          <div class="home">
-            <img src="/assets/images/ground.svg" />
-          </div>
-          <div class="lanes">
-            <div class="item">
-              <div class="line"></div>
-              <p class="mul">x1.00</p>
-              <img src="/assets/images/pipe.svg" />
-            </div>
-            <div class="item">
-              <div class="line"></div>
-              <p class="mul">x1.00</p>
-              <img src="/assets/images/pipe.svg" />
-            </div>
-            <div class="item">
-              <div class="line"></div>
-              <p class="mul">x1.00</p>
-              <img src="/assets/images/pipe.svg" />
-            </div>
-            <div class="item">
-              <div class="line"></div>
-              <p class="mul">x1.00</p>
-              <img src="/assets/images/pipe.svg" />
-            </div>
-            <div class="item">
-              <div class="line"></div>
-              <p class="mul">x1.00</p>
-              <img src="/assets/images/pipe.svg" />
-            </div>
-            <div class="item">
-              <div class="line"></div>
-              <p class="mul">x1.00</p>
-              <img src="/assets/images/pipe.svg" />
-            </div>
-            <div class="item">
-              <div class="line"></div>
-              <p class="mul">x1.00</p>
-              <img src="/assets/images/pipe.svg" />
-            </div>
-            <div class="item">
-              <div class="line"></div>
-              <p class="mul">x1.00</p>
-              <img src="/assets/images/pipe.svg" />
-            </div>
-            <div class="item">
-              <div class="line"></div>
-              <p class="mul">x1.00</p>
-              <img src="/assets/images/pipe.svg" />
-            </div>
-            <div class="item">
-              <div class="line"></div>
-              <p class="mul">x1.00</p>
-              <img src="/assets/images/pipe.svg" />
-            </div>
-          </div>
-        </div>
-      </section>
-      <section class="bet-control container">
-        <div>
-          <label for="bet">Bet Amount</label>
-          <div id="bet" class="container">
-            <img src="/assets/images/cash.svg" id="bet-icon" />
-            <input
-              name="bet"
-              type="number"
-              step="0.01"
-              min="0.00"
-              max="1000"
-              value="0.00"
-              onkeydown="handleBetInput(event)"
-              onblur="(() => {if (this.value === '') this.value = '0.00'})()"
-              placeholder="Enter your bet"
-            />
-          </div>
-        </div>
-        <div>
-          <label for="bet-level">Diffuculty</label>
-          <div id="bet-level" class="btn-group">
-            <btn class="btn btn-level" id="btn-bet">Easy</btn>
-            <btn class="btn btn-level" id="btn-bet">Medium</btn>
-            <btn class="btn btn-level" id="btn-bet">Hard</btn>
-            <btn class="btn btn-level" id="btn-bet">Daredevil</btn>
-          </div>
-        </div>
-        <div>
-          <btn class="btn btn-primary" id="btn-bet">Start bet</btn>
-        </div>
-      </section>
-    </main>
-  </body>
 </html>
