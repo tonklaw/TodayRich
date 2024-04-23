@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>TodayRich - Game</title>
   <link rel="stylesheet" href="/styles/base.css" />
-  <link rel="stylesheet" href="/styles/styles.css" />
+  <link rel="stylesheet" href="/styles/style.css" />
   <link rel="stylesheet" href="/styles/game.css" />
   <link rel="shortcut icon" type="image/x-icon" href="/assets/favicon.ico">
 </head>
@@ -15,20 +15,61 @@
     <div class="title-container">
       <h1 class="title">TodayRich</h1>
     </div>
-    <div class="user-action container">
-      <a href="/login" class="btn btn-secondary">Login</a>
-      <a href="/register" class="btn btn-primary">Register</a>
+    <div class="user-action">
+      <div class="container">
+        <btn class="btn btn-secondary"><a href="/login">
+            Login
+          </a></btn>
+        <btn class="btn btn-primary"><a href="/register">
+            Register
+          </a></btn>
+      </div>
     </div>
   </header>
 
-  <main class="container">
-    <!-- <section>
-      <div id="game-container-view" class="game-container">
+  <main>
+    <section id="game-container">
+      <div id="view" class="game-container">
         <img id="chicken" class="chicken" src="/assets/images/chicken.svg" />
         <div class="home">
           <img src="/assets/images/ground.svg" />
         </div>
         <div class="lanes">
+          <div class="item">
+            <div class="line"></div>
+            <p class="mul">x1.00</p>
+            <img src="/assets/images/pipe.svg" />
+          </div>
+          <div class="item">
+            <div class="line"></div>
+            <p class="mul">x1.00</p>
+            <img src="/assets/images/pipe.svg" />
+          </div>
+          <div class="item">
+            <div class="line"></div>
+            <p class="mul">x1.00</p>
+            <img src="/assets/images/pipe.svg" />
+          </div>
+          <div class="item">
+            <div class="line"></div>
+            <p class="mul">x1.00</p>
+            <img src="/assets/images/pipe.svg" />
+          </div>
+          <div class="item">
+            <div class="line"></div>
+            <p class="mul">x1.00</p>
+            <img src="/assets/images/pipe.svg" />
+          </div>
+          <div class="item">
+            <div class="line"></div>
+            <p class="mul">x1.00</p>
+            <img src="/assets/images/pipe.svg" />
+          </div>
+          <div class="item">
+            <div class="line"></div>
+            <p class="mul">x1.00</p>
+            <img src="/assets/images/pipe.svg" />
+          </div>
           <div class="item">
             <div class="line"></div>
             <p class="mul">x1.00</p>
@@ -46,30 +87,28 @@
           </div>
         </div>
       </div>
-    </section> -->
-    <section id="game-container" class="container">
-      <div id="game-container-view" class="game-container">
-        <img id="chicken" class="chicken" src="/assets/images/chicken.svg" />
-        <div class="home">
-          <img src="/assets/images/ground.svg" />
+    </section>
+    <section class="bet-control container">
+      <div>
+        <label for="bet">Bet Amount</label>
+        <div id="bet" class="container">
+          <img src="/assets/images/cash.svg" id="bet-icon" />
+          <input type="text" name="bet" placeholder="Enter your bet" />
         </div>
-        <div class="lanes">
-          <div class="item">
-            <div class="line"></div>
-            <p class="mul">x1.00</p>
-            <img src="/assets/images/pipe.svg" />
-          </div>
-          <div class="item">
-            <div class="line"></div>
-            <p class="mul">x1.00</p>
-            <img src="/assets/images/pipe.svg" />
-          </div>
-          <div class="item">
-            <div class="line"></div>
-            <p class="mul">x1.00</p>
-            <img src="/assets/images/pipe.svg" />
-          </div>
+      </div>
+      <div>
+        <label for="bet-level">Diffuculty</label>
+        <div id="bet-level" class="btn-group">
+          <btn class="btn btn-level" id="btn-bet">Easy</btn>
+          <btn class="btn btn-level" id="btn-bet">Medium</btn>
+          <btn class="btn btn-level" id="btn-bet">Hard</btn>
+          <btn class="btn btn-level" id="btn-bet">Daredevil</btn>
         </div>
+      </div>
+      <div>
+
+        <btn class="btn btn-primary" id="btn-bet">Start bet</btn>
+
       </div>
     </section>
   </main>
