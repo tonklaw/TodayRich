@@ -15,7 +15,7 @@
                 <div id="lane${i}" class="item">
                     <div class="line"></div>
                     <div class="car">
-                      <img id="car-${i}" class="car-${i%8+1}" src="/assets/cars/car${i%8+1}.svg" />
+                      <img id="car-${i}" class="car-${i % 8 + 1}" src="/assets/cars/car${i % 8 + 1}.svg" />
                     </div>
                     <p class="mul">x${(1.0 + (0.06 * i)).toFixed(2)}</p>
                     <img class="but" src="/assets/button.svg" />
@@ -33,7 +33,7 @@
     let idel = 0;
 
     function jump() {
-      const car = document.getElementById(`car-${move+1}`);
+      const car = document.getElementById(`car-${move + 1}`);
       const lane = document.getElementById(`lane${move}`);
       if (move < 3) {
         move++;
@@ -49,7 +49,7 @@
             .style.setProperty("transform", `translateX(${chicken}px)`);
         }, 100);
         chicken += 150;
-       
+
       } else {
         move++;
         document.body.style.setProperty("--move", move);
@@ -67,26 +67,26 @@
         chicken += 150;
       }
 
-      if(car){
+      if (car) {
         const nextCar = new Promise((resolve, reject) => {
-        const animationHandler = () => {
-          resolve();
-        };
-        car.addEventListener("animationiteration", animationHandler, { once: true });
-      });
+          const animationHandler = () => {
+            resolve();
+          };
+          car.addEventListener("animationiteration", animationHandler, { once: true });
+        });
 
-      nextCar.then(() => {
-        car.remove();
-      });
+        nextCar.then(() => {
+          car.remove();
+        });
       }
-      
-      if(lane){
+
+      if (lane) {
         let roadBlock = `
           <img class="roadBlock-crack" src="/assets/roadBlock-crack.svg" />
           <img class="roadBlock" src="/assets/roadBlock.svg" />
       `
-      lane.innerHTML += roadBlock;
-     }
+        lane.innerHTML += roadBlock;
+      }
     }
 
 
